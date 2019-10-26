@@ -1,6 +1,6 @@
 # OpenProject
 [<img src="https://travis-ci.org/jazibsawar/aviasales-ttu.svg?branch=master" alt="Build Status" />](https://travis-ci.org/jazibsawar/aviasales-ttu)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/485c809580797002c05e/test_coverage)](https://codeclimate.com/github/jazibsawar/aviasales-ttu/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/485c809580797002c05e/maintainability)](https://codeclimate.com/github/jazibsawar/aviasales-ttu/maintainability)
 
 OpenProject is a web-based project management software. Its key features are:
 
