@@ -46,6 +46,7 @@ branches:
     - master
     - dev
     - /^(stable|release)\/.*$/
+    - /^.*(_specs)$/
 
 env:
   global:
