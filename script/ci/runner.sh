@@ -53,3 +53,5 @@ export OPENPROJECT_CLI_PROXY=''
 bundle exec rake db:migrate RAILS_ENV=test
 
 bundle exec rspec spec/models/user_spec.rb
+
+bundle exec rspec spec/models/user_password_spec.rb
