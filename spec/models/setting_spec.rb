@@ -30,4 +30,57 @@
 require 'spec_helper'
 
 describe Setting, type: :model do
+  # AviaSales specific defaults that are set in settings.yml
+  describe "AviaSales's default settings" do
+    it 'has AviaSales as application title' do
+      expect(Setting.app_title).to eq 'AviaSales'
+    end
+
+    it 'allows users to register themselves' do
+      expect(Setting.self_registration?).to be_truthy
+    end
+
+    it 'allows anonymous users to access public information' do
+      expect(Setting.login_required?).to be_falsey
+    end
+  end
+
+  describe 'language can be updated to Russian' do
+    context "setting doesn't exist in the database" do
+      before do
+        Setting.default_language = 'ru'
+      end
+
+      it 'sets the setting' do
+        expect(Setting.default_language).to eq 'ru'
+      end
+
+      it 'stores the setting' do
+        expect(Setting.find_by(name: 'default_language').value).to eq 'ru'
+      end
+
+      after do
+        Setting.find_by(name: 'default_language').destroy
+      end
+    end
+
+    context 'setting already exist in the database' do
+      before do
+        Setting.default_language = 'en'
+        Setting.default_language = 'ru'
+      end
+
+      it 'sets the setting' do
+        expect(Setting.default_language).to eq 'ru'
+      end
+
+      it 'stores the setting' do
+        expect(Setting.find_by(name: 'default_language').value).to eq 'ru'
+      end
+
+      after do
+        Setting.find_by(name: 'default_language').destroy
+      end
+    end
+  end
 end
